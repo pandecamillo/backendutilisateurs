@@ -1,0 +1,46 @@
+body{
+    background-color: black;
+    color:white;
+    width:40%;
+    margin:0 auto;
+}
+h1{
+    font-size: 3rem;
+}
+ol>li{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:2rem;
+    font-weight: bold;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px;
+}
+
+.btn-add{
+    cursor:pointer;
+    padding:5px;
+    background-color:rgb(6, 97, 27);
+    color:white;
+    font-weight: bold;
+    font-size:1.6rem;
+}
+
+.btn-update{
+    cursor:pointer;
+    padding:5px;
+    background-color:rgb(218, 112, 14);
+    color:white;
+    font-weight: bold;
+    font-size:1.2rem;
+}
+
+
+.btn-delete{
+    cursor:pointer;
+    padding:5px;
+    background-color:red;
+    color:white;
+    font-weight: bold;
+    font-size:1.2rem;
+}
