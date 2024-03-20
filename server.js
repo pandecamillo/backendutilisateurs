@@ -7,12 +7,11 @@ const port = process.env.port || 8800;
 
 const app = express();
 const db = mysql.createPool({
-    host : 'localhost',
-    user : 'root',	
-    password : '1234',
-    database : 'mydatabase',
-    port: 3306
-    
+host : 'database-iss-kin-utilisateurs.a.aivencloud.com',
+user : 'avnadmin',	
+password : 'AVNS_VSLSgnx6Ow2LMUaXxTG',
+database : 'defaultdb',
+port: 11901    
 })
 
 db.getConnection(()=>{
@@ -80,22 +79,13 @@ app.delete("/user/:id", async (req,res)=>{
     })
 })
 
-
 app.get("/user/:id",(req,res)=>{
-    db.getConnection(function(err,cnx){
-        if(err){
-            console.log('error on connection')
-        }else{
-            const userid = req.params.id;
-            const q = "SELECT * FROM user WHERE userid = ?"
-            db.query(q, [userid], (err,data)=>{
-                if(err)return res.json(err)
-                return res.json(data)
-            })
-            cnx.release()
-        }
+    const userid = req.params.id;
+    const q = "SELECT * FROM user WHERE userid = ?"
+    db.query(q, [userid], (err,data)=>{
+    if(err)return res.json(err)
+        return res.json(data)
     })
-   
 })
 
 
