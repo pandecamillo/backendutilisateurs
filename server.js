@@ -28,7 +28,7 @@ app.get("/",(req,res)=>{
 })
 
 app.get("/users",(req,res)=>{
-    const q = "SELECT * FROM user"
+    const q = "SELECT  `usernom`, `userprenom` FROM user"
     db.query(q, (err,data)=>{
         if(err)return res.json(err)
         console.log("read all users")
