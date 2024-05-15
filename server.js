@@ -25,7 +25,7 @@ app.get("/",(req,res)=>{
 })
 
 app.get("/users",(req,res)=>{
-    const q = "SELECT  `usernom`, `userprenom`, `userphone` FROM user"
+    const q = "SELECT `userid`, `usernom`, `userprenom`, `userphone` FROM user"
     db.query(q, (err,data)=>{
         if(err)return res.json(err)
         console.log("read all users")
@@ -35,9 +35,8 @@ app.get("/users",(req,res)=>{
 
 
 app.post("/user", async(req,res)=>{
-    const q = "INSERT INTO user (`usernom`, `userprenom`, `userphone`) VALUES (?,?,?,?)"
+    const q = "INSERT INTO user (`usernom`, `userprenom`, `userphone`) VALUES (?,?,?)"
     const values = [
-        req.body.userprofile,
         req.body.usernom,
         req.body.userprenom,
         req.body.userphone  
@@ -56,7 +55,6 @@ app.put("/user/:id", async (req,res)=>{
     const values = [
         req.body.usernom,
         req.body.userprenom,
-        req.body.userprofile,
         req.body.userphone,
     ]
     db.query(q, [...values, userid], (err,data)=>{
@@ -78,7 +76,7 @@ app.delete("/user/:id", async (req,res)=>{
 
 app.get("/user/:id",(req,res)=>{
     const userid = req.params.id;
-    const q = "SELECT  `usernom`, `userprenom`, `userphone` FROM user WHERE userid = ?"
+    const q = "SELECT  `userid`, `usernom`, `userprenom`, `userphone` FROM user WHERE userid = ?"
     db.query(q, [userid], (err,data)=>{
     if(err)return res.json(err)
         return res.json(data)
