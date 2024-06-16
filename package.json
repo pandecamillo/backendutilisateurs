@@ -2,7 +2,7 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server1.js",
   "type": "module",
   "scripts": {
     "start": "nodemon server1.js",
